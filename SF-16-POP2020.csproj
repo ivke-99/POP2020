@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <RootNamespace>SF_16_POP2020</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="2.4.7" />
+    <PackageReference Include="MySql.Data" Version="8.0.26" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Windows\Admin\" />
+    <Folder Include="Windows\Doctor\" />
+    <Folder Include="Windows\Patient\" />
+  </ItemGroup>
+
+</Project>

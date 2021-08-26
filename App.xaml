@@ -1,0 +1,8 @@
+﻿<Application x:Class="SF_16_POP2020.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SF_16_POP2020"
+             StartupUri="Windows\Public\LoginWindow.xaml">
+    <Application.Resources>
+    </Application.Resources>
+</Application>

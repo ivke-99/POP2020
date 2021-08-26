@@ -1,0 +1,21 @@
+﻿<Window x:Class="SF_16_POP2020.LoginWindow"
+        ResizeMode="NoResize"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SF_16_POP2020"
+        mc:Ignorable="d"
+        Title="LOGIN" Height="400" Width="348"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,0,0">
+        <TextBox x:Name="pinField" Margin="50,51,50,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <PasswordBox x:Name="passwordField" Margin="50,105,50,0" Height="23" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label Content="Password" Margin="50,77,50,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="28" Grid.ColumnSpan="2"/>
+        <Label Content="PIN" Margin="50,18,50,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="23" Grid.ColumnSpan="2"/>
+        <Button Content="LOGIN" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top" Width="133" Click="Login_Click"/>
+        <Button Content="REGISTER" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Width="133" Click="Register_Click"/>
+        <Button Content="CONTINUE AS GUEST" HorizontalAlignment="Left" Margin="190,290,0,0" VerticalAlignment="Top" Width="133" Click="Guest_Click"/>
+        <Button Content="SEARCH" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Width="132" Click="Search_Click"/>
+    </Grid>
+</Window>
