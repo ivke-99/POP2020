@@ -127,9 +127,11 @@ namespace SF_16_POP2020.Services
 
         }
 
-        public static int SaveAddress(Address address)
+        public static int? SaveAddressIfNotExists(Address address)
         {
-            return SaveAddress(address.Street.Trim(), address.Number.Trim(), address.Town.Trim(), address.Country.Trim());
+            var address_id = FindByStreetAndNumberAndTownAndCountry(address.Street, address.Number, address.Town, address.Country)?.Id;
+            if (!address_id.HasValue) address_id = SaveAddress(address.Street, address.Number, address.Town, address.Country);
+            return address_id;
         }
 
         public static int SaveAddress(string Street, string Number, string Town, string Country)
