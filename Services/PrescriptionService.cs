@@ -230,7 +230,7 @@ namespace SF_16_POP2020.Services
                     }
                 }
             }
-            return lista;
+            return list;
         }
     }
 }
