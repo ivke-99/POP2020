@@ -35,7 +35,7 @@ CREATE TABLE Users
 	first_name varchar(255) not null, 
 	last_name varchar(255) not null,
 	email varchar(255) not null,
-	gender bit not null,
+	gender tinyint not null,
 	password varchar(255) not null,
 	role tinyint not null,
 	clinic_id int default null,
