@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using SF_16_POP2020.Misc;
 using SF_16_POP2020.Models;
+using SF_16_POP2020.Windows.ViewModel;
 using System.Collections.Generic;
 
 namespace SF_16_POP2020.Services
@@ -142,11 +143,11 @@ namespace SF_16_POP2020.Services
             }
         }
 
-        public static List<User> FindAll()
+        public static List<UserViewModel> FindAll()
         {
-            var retval = new List<User>();
+            var retval = new List<UserViewModel>();
             string sql = @"SELECT 
-            pin, first_name, last_name, email, gender, password, role, address_id
+            first_name, last_name, email, gender, role, address_id
             FROM users WHERE deleted = 0";
             using (var con = new MySqlConnection(Util.CONNECTION_STRING))
             {
@@ -156,46 +157,34 @@ namespace SF_16_POP2020.Services
                     var rd = cmd.ExecuteReader();
                     while (rd.Read())
                     {
-                        retval.Add(new User
+                        retval.Add(new UserViewModel
                         {
-                            Pin = rd.GetString(0),
-                            FirstName = rd.GetString(1),
-                            LastName = rd.GetString(2),
-                            Email = rd.GetString(3),
-                            Gender = rd.GetBoolean(4) ? EGender.FEMALE : EGender.MALE,
-                            Password = rd.GetString(5),
-                            Role = Util.ParseRole(rd.GetInt32(6)),
-                            Address = AddressService.FindById(rd.GetInt32(7))
+                            FirstName = rd.GetString(0),
+                            LastName = rd.GetString(1),
+                            Email = rd.GetString(2),
+                            Gender = rd.GetBoolean(3) ? EGender.FEMALE : EGender.MALE,
+                            Role = Util.ParseRole(rd.GetInt32(4)),
+                            Address = AddressService.FindById(rd.GetInt32(5))
                         });
                     }
                 }
             }
             return retval;
         }
-        public static List<User> FindAllByFirstNameAndLastNameAndEmailAndAddress(string fName, string lName, string email, string address, ERole? role)
+        public static List<UserViewModel> FindAllByFirstNameAndLastNameAndEmailAndAddress(string fName, string lName, string email, string address, ERole? role)
         {
-            var retval = new List<User>();
+            var retval = new List<UserViewModel>();
             string sql = @" 
             SELECT 
-            pin, first_name, last_name, email, gender, password, role, address_id
-            FROM users
-
-
-U
+            first_name, last_name, email, gender, role, address_id
+            FROM users U
             INNER JOIN address A
-            ON U.adress_id = A.id
+            ON U.address_id = A.id
             WHERE U.deleted = 0
             AND U.first_name LIKE CONCAT('%', @FIRSTNAME, '%')
             AND U.last_name LIKE CONCAT('%', @LASTNAME, '%')
             AND U.email LIKE CONCAT('%', @EMAIL, '%')
-		    AND (
-                 CONCAT('%', A.street, '%') LIKE CONCAT('%', @ADDRESS, '%')
-              OR CONCAT('%', A.number, '%') LIKE CONCAT('%', @ADDRESS, '%')
-              OR CONCAT('%', A.town, '%') LIKE CONCAT('%', @ADDRESS, '%')
-              OR CONCAT('%', A.country, '%') LIKE CONCAT('%', @ADDRESS, '%')
-              OR CONCAT('%', A.street, ' ', A.number, ' ', A.town, ', ',A.country) LIKE CONCAT('%', @ADDRESS, '%')
-                )
-            ";
+		    AND CONCAT('%', A.street, ' ', A.number, ' ', A.town, ', ', A.country) LIKE CONCAT('%', @ADDRESS, '%')";
             if (role.HasValue)
                 sql += " AND U.role = @ROLE";
             using (var con = new MySqlConnection(Util.CONNECTION_STRING))
@@ -212,16 +201,14 @@ U
                     var rd = cmd.ExecuteReader();
                     while (rd.Read())
                     {
-                        retval.Add(new User
+                        retval.Add(new UserViewModel
                         {
-                            Pin = rd.GetString(0),
-                            FirstName = rd.GetString(1),
-                            LastName = rd.GetString(2),
-                            Email = rd.GetString(3),
-                            Gender = rd.GetBoolean(4) ? EGender.FEMALE : EGender.MALE,
-                            Password = rd.GetString(5),
-                            Role = Util.ParseRole(rd.GetInt32(6)),
-                            Address = AddressService.FindById(rd.GetInt32(7))
+                            FirstName = rd.GetString(0),
+                            LastName = rd.GetString(1),
+                            Email = rd.GetString(2),
+                            Gender = rd.GetBoolean(3) ? EGender.FEMALE : EGender.MALE,
+                            Role = Util.ParseRole(rd.GetInt32(4)),
+                            Address = AddressService.FindById(rd.GetInt32(5))
                         });
 
                     }

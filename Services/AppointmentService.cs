@@ -101,23 +101,51 @@ namespace SF_16_POP2020.Services
             }
         }
 
-        public static void ZakaziTerminZaPacijenta(Appointment selItem, string loggedKorisnikJmbg)
+        public static void BookAppointment(Appointment ap, string loggedUserPin)
         {
-            string sql = @"UPDATE Termin 
-                SET pacijentJmbg = @JMBG,
+            string sql = @"UPDATE appointment 
+                SET patient_pin = @PIN,
                 status = @STATUS
                 WHERE id = @ID";
-            using (var con = new SqlConnection(Util.CONNECTION_STRING))
+            using (var con = new MySqlConnection(Util.CONNECTION_STRING))
             {
                 con.Open();
-                using (var cmd = new SqlCommand(sql, con))
+                using (var cmd = new MySqlCommand(sql, con))
                 {
-                    cmd.Parameters.AddWithValue("JMBG", loggedKorisnikJmbg);
-                    cmd.Parameters.AddWithValue("STATUS", Appointment.EStatus.ZAKAZAN);
-                    cmd.Parameters.AddWithValue("ID", selItem.Id);
+                    cmd.Parameters.AddWithValue("PIN", loggedUserPin);
+                    cmd.Parameters.AddWithValue("STATUS", EStatus.BOOKED);
+                    cmd.Parameters.AddWithValue("ID", ap.Id);
                     cmd.ExecuteNonQuery();
                 }
             }
+        }
+
+        public static List<Appointment> FindAllByDoctor(string loggedUserPin)
+        {
+            var list = new List<Appointment>();
+            var sql = @"SELECT * FROM appointment WHERE deleted = 0 AND doctor_pin = @PIN";
+            using (var con = new MySqlConnection(Util.CONNECTION_STRING))
+            {
+                con.Open();
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("PIN", loggedUserPin);
+                    var rd = cmd.ExecuteReader();
+                    while (rd.Read())
+                    {
+                        var a = new Appointment
+                        {
+                            Id = rd.GetInt32(0),
+                            Doctor = DoctorService.FindByPIN(rd.GetString(1)),
+                            Status = rd.GetInt32(2) == 1 ? EStatus.BOOKED : EStatus.AVAILABLE,
+                            Patient = rd.IsDBNull(3) ? PatientService.FindByPin(rd.GetString(3)) : null,
+                            DateOfAppointment = rd.GetDateTime(5)
+                        };
+                        list.Add(a);
+                    }
+                }
+            }
+            return list;
         }
     }
 }

@@ -112,9 +112,5 @@ namespace SF_16_POP2020.Services
                 }
             return patients;
         }
-
-            
-        }
-
     }
 }

@@ -5,22 +5,20 @@ namespace SF_16_POP2020.Misc
 {
     public static class UserState
     {
-        private static User loggedUser { get; set; } = null;
-
-        public static User LoggedUser => loggedUser;
+        public static User LoggedUser { get; set; }
 
         public static void Logout()
         {
-            if (loggedUser == null)
+            if (LoggedUser == null)
                 throw new InvalidOperationException();
-            loggedUser = null;
+            LoggedUser = null;
         }
 
         public static void Login(User user)
         {
-            if (loggedUser != null)
+            if (LoggedUser != null)
                 throw new InvalidOperationException();
-            loggedUser = user;
+            LoggedUser = user;
         }
     }
 }

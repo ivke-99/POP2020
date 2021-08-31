@@ -1,0 +1,70 @@
+﻿<Window x:Class="SF_16_POP2020.Windows.Public.SearchWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SF_16_POP2020.Windows.Public"
+        mc:Ignorable="d"
+        Title="SearchWindow" Height="620" Width="800">
+    <Grid>
+        <TabControl HorizontalAlignment="Stretch" Height="490" Margin="0,0,0,0" VerticalAlignment="Top" Width="Auto">
+            <TabItem Header="Users">
+                <Grid Background="GhostWhite">
+                    <DataGrid SelectionMode="Single" IsReadOnly="True" x:Name="UserDG" HorizontalAlignment="Stretch" MinHeight="350" Height="Auto" Margin="0,0,250,0" VerticalAlignment="Top" MinWidth="500" Width="Auto"/>
+                    <Grid HorizontalAlignment="Stretch" MinHeight="350" Height="Auto" Margin="550,0,0,0" VerticalAlignment="Top" Width="200">
+                        <TextBox x:Name="tbFirstName" HorizontalAlignment="Stretch" Height="23" Margin="0,45,0,0" TextWrapping="Wrap" Text="{Binding KFirstName, Mode=TwoWay}" VerticalAlignment="Top" Width="Auto"/>
+                        <Label Content="First name" HorizontalAlignment="Center" Margin="0,14,0,0" VerticalAlignment="Top"/>
+
+                        <TextBox x:Name="tbLastName" HorizontalAlignment="Stretch" Height="23" Margin="0,110,0,0" TextWrapping="Wrap" Text="{Binding KLastName, Mode=TwoWay}" VerticalAlignment="Top" Width="Auto" />
+                        <Label Content="Last name" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top"/>
+
+                        <TextBox x:Name="tbEmail" HorizontalAlignment="Stretch" Height="23" Margin="0,180,0,0" TextWrapping="Wrap" Text="{Binding KEmail, Mode=TwoWay}" VerticalAlignment="Top" Width="Auto"/>
+                        <Label Content="Email" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top"/>
+
+                        <TextBox x:Name="tbAddress" HorizontalAlignment="Stretch" Height="23" Margin="0,240,0,0" TextWrapping="Wrap" Text="{Binding KAddress, Mode=TwoWay}" VerticalAlignment="Top" Width="Auto"/>
+                        <Label Content="Address" HorizontalAlignment="Center" Margin="0,210,0,0" VerticalAlignment="Top"/>
+
+                        <Label Content="User type" HorizontalAlignment="Center" Margin="0,280,0,0" VerticalAlignment="Top"/>
+                        <ComboBox x:Name="CBType" SelectionChanged="UserRoleChanged" HorizontalAlignment="Stretch" Margin="0,310,0,0" VerticalAlignment="Top" Width="Auto" SelectedItem="{Binding KRole, Mode=TwoWay}" ItemsSource="{Binding KRoleList}"/>
+                        <Button Click="ClearUserCombobox" Content="X" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="30" Margin="160,0,0,53"/>
+                        <Button Click="UsersSearch" Content="Pretraga" HorizontalAlignment="Center" Margin="0,337,0,0" VerticalAlignment="Top" Width="75"/>
+
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Clinics">
+                <Grid Background="GhostWhite">
+                    <DataGrid SelectionMode="Single" IsReadOnly="True" x:Name="DGClinics" HorizontalAlignment="Stretch" MinHeight="350" Height="Auto" Margin="0,0,250,0" VerticalAlignment="Top" MinWidth="500" Width="Auto"/>
+                    <Grid HorizontalAlignment="Stretch" MinHeight="350" Height="Auto" Margin="550,0,0,0" VerticalAlignment="Top" Width="200">
+                        <TextBox x:Name="tbClinicName" HorizontalAlignment="Stretch" Height="23" Margin="0,45,0,0" TextWrapping="Wrap" Text="{Binding CName, Mode=TwoWay}" VerticalAlignment="Top" Width="Auto"/>
+                        <Label Content="Name" HorizontalAlignment="Center" Margin="0,14,0,0" VerticalAlignment="Top"/>
+
+                        <TextBox x:Name="tbClinicAddress" HorizontalAlignment="Stretch" Height="23" Margin="0,110,0,0" TextWrapping="Wrap" Text="{Binding CAddress, Mode=TwoWay}" VerticalAlignment="Top" Width="Auto"/>
+                        <Label Content="Address" HorizontalAlignment="Center" Margin="77,80,77,0" VerticalAlignment="Top"/>
+
+                        <Button Click="ClinicsSearch" Content="Search" HorizontalAlignment="Center" Margin="0,159,0,0" VerticalAlignment="Top" Width="76"/>
+
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Prescriptions">
+                <Grid Background="GhostWhite">
+                    <DataGrid IsReadOnly="True" SelectionMode="Single" x:Name="DGPrescriptions" HorizontalAlignment="Stretch" MinHeight="350" Height="Auto" Margin="0,0,250,0" VerticalAlignment="Top" MinWidth="500" Width="Auto"/>
+                    <Grid HorizontalAlignment="Stretch" MinHeight="350" Height="Auto" Margin="550,0,0,0" VerticalAlignment="Top" Width="200">
+                        <TextBox x:Name="tbPDescription"  HorizontalAlignment="Stretch" Height="23" Margin="0,45,0,0" TextWrapping="Wrap" Text="{Binding PDescription, Mode=TwoWay}" VerticalAlignment="Top" Width="Auto"/>
+                        <Label Content="Description" HorizontalAlignment="Center" Margin="0,14,0,0" VerticalAlignment="Top"/>
+
+                        <ComboBox x:Name="CBDoctor" SelectionChanged="PrescriptionDoctorChanged" HorizontalAlignment="Stretch" Margin="0,110,0,0" VerticalAlignment="Top" Width="Auto" SelectedItem="{Binding PDoctor, Mode=TwoWay}" ItemsSource="{Binding PDoctorList}"/>
+                        <Label Content="Doctor" HorizontalAlignment="Center" Margin="77,80,77,0" VerticalAlignment="Top"/>
+
+                        <Button Click="PrescriptionSearch" Content="Search" HorizontalAlignment="Left" Margin="60,159,0,0" VerticalAlignment="Top" Width="75"/>
+                        <Button Click="PrescriptionClearDoctor" Content="X" FontSize="15" HorizontalAlignment="Left" Margin="165,80,0,0" VerticalAlignment="Top" Width="35"/>
+
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button Click="ClickClear"  FontSize="16" Content="Reset" HorizontalAlignment="Left" Margin="39,511,0,0" VerticalAlignment="Top" Width="129" Height="52"/>
+
+    </Grid>
+</Window>

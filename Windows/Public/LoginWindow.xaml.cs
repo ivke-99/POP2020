@@ -1,6 +1,7 @@
 ﻿using MahApps.Metro.Controls;
 using SF_16_POP2020.Misc;
 using SF_16_POP2020.Services;
+using SF_16_POP2020.Windows.Admin;
 using SF_16_POP2020.Windows.Dialog;
 using SF_16_POP2020.Windows.Public;
 using System;
@@ -35,10 +36,11 @@ namespace SF_16_POP2020
             Window win = null;
             if (user != null)
             {
+                UserState.Login(user);
                 switch (user.Role)
                 {
                     case Models.ERole.ADMIN:
-                        //win = new AdminMainWindow();
+                        win = new AdminMainWindow();
                         break;
                     case Models.ERole.DOCTOR:
                         //win = new DoctorMainWindow();
@@ -61,16 +63,14 @@ namespace SF_16_POP2020
 
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-            //var window = new SearchClick();
             Hide();
-            // window.Show();
+            new SearchWindow().Show();
         }
 
         private void Guest_Click(object sender, RoutedEventArgs e)
         {
-            // var window = new GuestViewWindow();
             Hide();
-            // window.Show();
+            new GuestViewWindow().Show();
         }
     }
 }

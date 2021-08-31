@@ -1,0 +1,23 @@
+﻿<Window x:Class="SF_16_POP2020.Windows.Admin.AdminMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SF_16_POP2020.Windows.Admin"
+        mc:Ignorable="d"
+        Title="AdminMainWindow" Height="450" Width="800">
+    <Grid>
+        <Menu HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto">
+            <MenuItem Header="Logout" Height="Auto" Width="Auto" x:Name="LogoutMI" Click="LogoutMI_OnClick"/>
+            <MenuItem Header="My Profile" Height="Auto" Width="Auto" x:Name="ProfileMI" Click="ProfileMI_OnClick" />
+            <MenuItem Header="Search" Height="Auto" Width="Auto" x:Name="SearchMI" Click="SearchMI_OnClick" />
+            <MenuItem Header="Address Menu" Height="Auto" Width="Auto" x:Name="AddressMI" Click="AddressMI_OnClick" />
+            <MenuItem Header="Prescription Menu" Height="Auto" Width="Auto" x:Name="PrescriptionMI" Click="PrescriptionMI_OnClick" />
+            <MenuItem Header="Doctor Menu" Height="Auto" Width="Auto" x:Name="DoctorMI" Click="DoctorMI_OnClick" />
+            <MenuItem Header="Clinic Menu" Height="Auto" Width="Auto" x:Name="ClinicMI" Click="ClinicMI_OnClick" />
+            <MenuItem Header="Appointment Menu" Height="Auto" Width="Auto" x:Name="AppointmentMI" Click="AppointmentMI_OnClick" />
+            <MenuItem Header="Patient Menu" Height="Auto" Width="Auto" x:Name="PatientMI" Click="PatientMI_OnClick" />
+        </Menu>
+        <Label Name="usernameLabel" FontSize="25" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" Width="291"/>
+    </Grid>
+</Window>

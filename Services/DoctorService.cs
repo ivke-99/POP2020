@@ -14,7 +14,7 @@ namespace SF_16_POP2020.Services
         public static List<Doctor> FindAll()
         {
             var doctors = new List<Doctor>();
-            var sql = @"SELECT * FROM users WHERE deleted == 0
+            var sql = @"SELECT * FROM users WHERE deleted = 0
             AND role = 1";
             using (var con = new MySqlConnection(Util.CONNECTION_STRING))
             {
@@ -45,7 +45,7 @@ namespace SF_16_POP2020.Services
         public static Doctor FindByPIN(string pin)
         {
             Doctor doctor = null;
-            var sql = @"SELECT * FROM users WHERE deleted == 0 AND role = 1 AND pin = @PIN";
+            var sql = @"SELECT * FROM users WHERE deleted = 0 AND role = 1 AND pin = @PIN";
             using (var con = new MySqlConnection(Util.CONNECTION_STRING))
             {
                 con.Open();
