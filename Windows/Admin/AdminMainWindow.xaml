@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SF_16_POP2020.Windows.Admin"
         mc:Ignorable="d"
-        Title="AdminMainWindow" Height="450" Width="800">
+        Title="Admin Main Window" Height="450" Width="800">
     <Grid>
         <Menu HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto">
             <MenuItem Header="Logout" Height="Auto" Width="Auto" x:Name="LogoutMI" Click="LogoutMI_OnClick"/>

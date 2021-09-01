@@ -42,7 +42,7 @@ namespace SF_16_POP2020.Services
                 sql = @"INSERT INTO appointment (doctor_pin, status, patient_pin, date_of_appointment)
                 VALUES (@DPIN, @STATUS, @PPIN, @DATE)";
             else
-                sql = @"INSERT INTO Termin (doctor_pin, status, date_of_appointment)
+                sql = @"INSERT INTO appointment (doctor_pin, status, date_of_appointment)
                 VALUES (@DPIN, @STATUS, @DATE)";
 
             using (var con = new MySqlConnection(Util.CONNECTION_STRING))

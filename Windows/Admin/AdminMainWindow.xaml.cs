@@ -1,4 +1,5 @@
 ﻿using SF_16_POP2020.Misc;
+using SF_16_POP2020.Windows.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,8 +36,7 @@ namespace SF_16_POP2020.Windows.Admin
 
         private void ProfileMI_OnClick(object sender, RoutedEventArgs e)
         {
-            Hide();
-            //new LoginWindow().Show();
+            new ProfileWindow().Show();
         }
 
         private void AddressMI_OnClick(object sender, RoutedEventArgs e)

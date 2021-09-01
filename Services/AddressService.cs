@@ -105,11 +105,11 @@ namespace SF_16_POP2020.Services
         {
             Address retval = null;
             string sql = $@"SELECT 
-            street, number, town, country FROM address WHERE
-            street LIKE @STREET AND
-            number LIKE @NUMBER AND
-            town LIKE @TOWN AND
-            country LIKE @COUNTRY AND
+            id, street, number, town, country FROM address WHERE
+            street LIKE CONCAT('%', @STREET, '%') AND
+            number LIKE CONCAT('%', @NUMBER, '%') AND
+            town LIKE CONCAT('%', @TOWN, '%') AND
+            country LIKE CONCAT('%', @COUNTRY, '%') AND
             deleted = 0";
             using (var con = new MySqlConnection(Util.CONNECTION_STRING))
             {
