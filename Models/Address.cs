@@ -20,5 +20,13 @@
             Town = "";
             Country = "";
         }
+
+        public Address(string street,string number,string town,string country)
+        {
+            Street = street;
+            Number = number;
+            Town = town;
+            Country = country;
+        }
     }
 }

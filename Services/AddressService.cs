@@ -144,10 +144,10 @@ namespace SF_16_POP2020.Services
                 con.Open();
                 using (var cmd = new MySqlCommand(sql, con))
                 {
-                    _ = cmd.Parameters.AddWithValue("STREET", Street);
-                    _ = cmd.Parameters.AddWithValue("NUMBER", Number);
-                    _ = cmd.Parameters.AddWithValue("TOWN", Town);
-                    _ = cmd.Parameters.AddWithValue("COUNTRY", Country);
+                    _ = cmd.Parameters.AddWithValue("STREET", Street.Trim());
+                    _ = cmd.Parameters.AddWithValue("NUMBER", Number.Trim());
+                    _ = cmd.Parameters.AddWithValue("TOWN", Town.Trim());
+                    _ = cmd.Parameters.AddWithValue("COUNTRY", Country.Trim());
                     return Convert.ToInt32(cmd.ExecuteScalar());
                 }
             }

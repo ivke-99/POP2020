@@ -42,15 +42,12 @@ namespace SF_16_POP2020.Windows.Shared
         private void btnChange_Click(object sender, RoutedEventArgs e)
         {
             var nameRegex = new Regex(@"(^\s*$)|([^a-zA-Z])|([0-9])");
-            var pinRegex = new Regex(@"(^\s*$)|([^0-9])");
             var emailRegex = new Regex(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z");
             string errorMessage = "";
             if (nameRegex.IsMatch(User.FirstName))
                 errorMessage = "First name format not valid.";
             else if (nameRegex.IsMatch(User.LastName))
                 errorMessage = "Last name format not valid.";
-            else if (pinRegex.IsMatch(User.Pin) || User.Pin.Trim().Length != 13)
-                errorMessage = "PIN should be 13 characters.";
             else if (!emailRegex.IsMatch(User.Email))
                 errorMessage = "E-mail format not valid.";
             else if (pbPassword.Password.Trim().Length == 0 || pbPassword.Password.Contains(" ") || pbPassword.Password.Trim().Length > 20 || pbPassword.Password.Trim().Length <= 6)

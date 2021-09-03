@@ -42,7 +42,7 @@ namespace SF_16_POP2020.Windows.Admin
         private void AddressMI_OnClick(object sender, RoutedEventArgs e)
         {
             Hide();
-            //new LoginWindow().Show();
+            new AdminAddressWindow().Show();
         }
 
         private void PrescriptionMI_OnClick(object sender, RoutedEventArgs e)
