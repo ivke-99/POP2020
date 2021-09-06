@@ -1,0 +1,16 @@
+﻿<Window x:Class="SF_16_POP2020.Windows.Admin.AdminPatientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SF_16_POP2020.Windows.Admin"
+        mc:Ignorable="d"
+        Title="Admin Patient Window" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="DG" AutoGeneratingColumn="DG_OnAutoGeneratingColumn" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" SelectionMode="Single" SelectedCellsChanged="DG_SelectedCellsChanged" HorizontalAlignment="Center" Height="342" Margin="0,10,0,0" VerticalAlignment="Top" Width="Auto" MinWidth="500"/>
+        <Button x:Name="BtnDelete" Click="BtnDelete_Click" Content="Delete" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="BtnEdit" Click="BtnEdit_Click"  Content="Edit" HorizontalAlignment="Right" Margin="0,389,21,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="BtnAdd" Click="BtnAdd_Click" Content="Add" Margin="0,389,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="100"/>
+        <Button x:Name="BtnPrescription" Click="Prescription_OnClick" Content="Prescriptions" Margin="0,363,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="100"/>
+    </Grid>
+</Window>

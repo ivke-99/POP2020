@@ -1,4 +1,5 @@
 ﻿using SF_16_POP2020.Misc;
+using SF_16_POP2020.Windows.Public;
 using SF_16_POP2020.Windows.Shared;
 using System;
 using System.Collections.Generic;
@@ -46,8 +47,7 @@ namespace SF_16_POP2020.Windows.Admin
 
         private void PrescriptionMI_OnClick(object sender, RoutedEventArgs e)
         {
-            Hide();
-            //new LoginWindow().Show();
+            new AdminPrescriptionWindow().Show();
         }
 
         private void DoctorMI_OnClick(object sender, RoutedEventArgs e)
@@ -62,20 +62,17 @@ namespace SF_16_POP2020.Windows.Admin
 
         private void AppointmentMI_OnClick(object sender, RoutedEventArgs e)
         {
-            Hide();
-            //new LoginWindow().Show();
+            new AdminAppointmentWindow().Show();
         }
 
         private void PatientMI_OnClick(object sender, RoutedEventArgs e)
         {
-            Hide();
-            //new LoginWindow().Show();
+            new AdminPatientWindow().Show();
         }
 
         private void SearchMI_OnClick(object sender, RoutedEventArgs e)
         {
-            Hide();
-            //new LoginWindow().Show();
+            new SearchWindow().Show();
         }
     }
 }

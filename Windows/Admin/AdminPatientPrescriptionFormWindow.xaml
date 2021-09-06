@@ -1,0 +1,22 @@
+﻿<Window x:Class="SF_16_POP2020.Windows.Admin.AdminPatientPrescriptionFormWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SF_16_POP2020.Windows.Admin"
+        mc:Ignorable="d"
+        Title="Admin Patient Prescription Form Window" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="118*"/>
+            <RowDefinition Height="301*"/>
+        </Grid.RowDefinitions>
+        <DataGrid SelectionMode="Single" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" x:Name="DGAll" ItemsSource="{Binding Path=AllPrescriptions,Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" Height="362" Margin="0,46,24,0" VerticalAlignment="Top" Grid.RowSpan="2" HorizontalAlignment="Right" Width="348" Grid.ColumnSpan="2"/>
+        <DataGrid SelectionMode="Single"  IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" x:Name="DGP" ItemsSource="{Binding Path=PatientPrescriptions, Mode=TwoWay,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" HorizontalAlignment="Left" Height="362" Margin="20,46,0,0" VerticalAlignment="Top" Width="342" Grid.RowSpan="2"/>
+        <Button Click="DeletePrescription_OnClick" Content="&gt;" FontSize="20" HorizontalAlignment="Left" Margin="377,70,0,0" VerticalAlignment="Top" Width="31" RenderTransformOrigin="-2.116,1.093"/>
+        <Button Content="&lt;" Click="AddPrescription_OnClick" FontSize="20" HorizontalAlignment="Left" Margin="377,224,0,0" VerticalAlignment="Top" Width="31" RenderTransformOrigin="-2.116,1.093" Grid.Row="1"/>
+        <Label Content="Patient Prescriptions" FontSize="18" HorizontalAlignment="Left" Margin="117,7,0,0" VerticalAlignment="Top"/>
+        <Label Content="Other Prescriptions" FontSize="18" Margin="0,7,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="255" Grid.Column="1"/>
+
+    </Grid>
+</Window>

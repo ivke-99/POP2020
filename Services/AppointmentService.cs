@@ -25,7 +25,7 @@ namespace SF_16_POP2020.Services
                             Id = rd.GetInt32(0),
                             Doctor = DoctorService.FindByPIN(rd.GetString(1)),
                             Status = rd.GetInt32(2) == 1 ? EStatus.BOOKED : EStatus.AVAILABLE,
-                            Patient = rd.IsDBNull(3) ? PatientService.FindByPin(rd.GetString(3)) : null,
+                            Patient = rd.IsDBNull(3) ? null :  PatientService.FindByPin(rd.GetString(3)),
                             DateOfAppointment = rd.GetDateTime(5)
                         };
                         list.Add(a);
@@ -138,7 +138,7 @@ namespace SF_16_POP2020.Services
                             Id = rd.GetInt32(0),
                             Doctor = DoctorService.FindByPIN(rd.GetString(1)),
                             Status = rd.GetInt32(2) == 1 ? EStatus.BOOKED : EStatus.AVAILABLE,
-                            Patient = rd.IsDBNull(3) ? PatientService.FindByPin(rd.GetString(3)) : null,
+                            Patient = rd.IsDBNull(3) ? null : PatientService.FindByPin(rd.GetString(3)),
                             DateOfAppointment = rd.GetDateTime(5)
                         };
                         list.Add(a);

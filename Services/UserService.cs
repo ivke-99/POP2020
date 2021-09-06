@@ -86,6 +86,13 @@ namespace SF_16_POP2020.Services
             return retval;
         }
 
+        public static bool SaveUser(User user)
+        {
+            var value = SaveUser(user.FirstName.Trim(), user.LastName.Trim(), user.Pin.Trim(), user.Email.Trim(),
+                user.Gender, user.Password.Trim(), user.Address.Street.Trim(), user.Address.Number.Trim(), user.Address.Town.Trim(), user.Address.Country.Trim());
+            return value;
+        }
+
         public static bool SaveUser(string firstName, string lastName, string pin, string email, EGender gender, string password, string street, string number, string town, string country)
         {
             if (FindAnyByPin(pin) != null)

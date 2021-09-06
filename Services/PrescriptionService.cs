@@ -39,7 +39,7 @@ namespace SF_16_POP2020.Services
         public static int SavePrescription(Prescription p)
         {
             string sql = $@"INSERT INTO prescription (description, doctor_pin)
-            VALUES (@OPIS, @DOCTORPIN);
+            VALUES (@DESCRIPTION, @DOCTORPIN);
             SELECT LAST_INSERT_ID();";
             using (var con = new MySqlConnection(Util.CONNECTION_STRING))
             {

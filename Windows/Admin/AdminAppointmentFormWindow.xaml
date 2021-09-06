@@ -1,0 +1,32 @@
+﻿<Window x:Class="SF_16_POP2020.Windows.Admin.AdminAppointmentFormWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SF_16_POP2020.Windows.Admin"
+        mc:Ignorable="d"
+        Title="Admin Appointment Form Window" Height="600" Width="400">
+    <Grid>
+        <Grid HorizontalAlignment="Center" Height="412" Margin="36,32,36,0" VerticalAlignment="Top" Width="320">
+            <Label Content="Doctor" HorizontalAlignment="Stretch" Margin="0,23,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+            <ComboBox HorizontalAlignment="Stretch" Margin="10,50,10,0" VerticalAlignment="Top" Width="Auto" SelectedItem="{
+                Binding Path=Doctor, Mode=TwoWay}" ItemsSource="{Binding Doctors, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"/>
+
+            <Label Content="Date" HorizontalAlignment="Stretch" Margin="0,83,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+            <DatePicker HorizontalAlignment="Stretch" Margin="10,110,10,0" VerticalAlignment="Top"
+                        SelectedDate="{Binding Path=DateOfAppointment, Mode=TwoWay}"/>
+
+            <Label Content="Patient" HorizontalAlignment="Stretch" Margin="0,153,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="27"/>
+            <ComboBox x:Name="CbPatient" HorizontalAlignment="Stretch" Margin="10,184,10,0" VerticalAlignment="Top" Width="Auto"
+                      SelectedItem="{Binding Path=Patient, Mode=TwoWay}"
+                      ItemsSource="{Binding Patients, RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}}"/>
+
+            <Label Content="Status" HorizontalAlignment="Stretch" Margin="0,229,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="27"/>
+            <ComboBox x:Name="CbStatus" HorizontalAlignment="Stretch" Margin="10,261,10,0" VerticalAlignment="Top" Width="Auto"
+                      SelectedItem="{Binding Path=Status, Mode=TwoWay}"
+                      ItemsSource="{Binding EStatusTypes, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"/>
+        </Grid>
+        <Button Content="Cancel" x:Name="btnCancel" Click="Cancel_OnClick" HorizontalAlignment="Left" Margin="40,497,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Save" x:Name="btnSave" Click="Save_OnClick" HorizontalAlignment="Left" Margin="285,497,0,0" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+</Window>
