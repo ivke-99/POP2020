@@ -116,6 +116,8 @@ namespace SF_16_POP2020.Services
 
         public static void UpdateUser(User user)
         {
+            var addressId = AddressService.SaveAddressIfNotExists(user.Address);
+            if (addressId.HasValue) user.Address.Id = (int)addressId;
             string sql = @"UPDATE users
             SET first_name = @FIRSTNAME,
             last_name = @LASTNAME,
@@ -170,6 +172,21 @@ namespace SF_16_POP2020.Services
                 }
             }
             return retval;
+        }
+
+        public static void DeleteUser(User user)
+        {
+            string sql = @"UPDATE users set deleted = 1 where pin = @PIN";
+            using (var con = new MySqlConnection(Util.CONNECTION_STRING))
+            {
+                con.Open();
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("PIN", user.Pin);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
         }
         public static List<UserViewModel> FindAllByFirstNameAndLastNameAndEmailAndAddress(string fName, string lName, string email, string address, ERole? role)
         {

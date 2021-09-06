@@ -1,0 +1,29 @@
+﻿<Window x:Class="SF_16_POP2020.Windows.Admin.AdminClinicFormWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SF_16_POP2020.Windows.Admin"
+        mc:Ignorable="d"
+        Title="AdminClinicFormWindow" Height="600" Width="400">
+    <Grid>
+        <Grid HorizontalAlignment="Center" Height="412" Margin="36,32,36,0" VerticalAlignment="Top" Width="320">
+            <Label Content="Name" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+            <TextBox HorizontalAlignment="Stretch" Height="23" Margin="10,35,10,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="Auto"/>
+
+            <Label Content="Street" HorizontalAlignment="Stretch" Margin="0,75,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+            <TextBox HorizontalAlignment="Stretch" Height="23" Margin="10,110,10,0" TextWrapping="Wrap" Text="{Binding Path=Address.Street}" VerticalAlignment="Top" Width="Auto"/>
+
+            <Label Content="Number" HorizontalAlignment="Stretch" Margin="0,153,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+            <TextBox HorizontalAlignment="Stretch" Height="23" Margin="10,188,10,0" TextWrapping="Wrap" Text="{Binding Path=Address.Number}" VerticalAlignment="Top" Width="Auto"/>
+
+            <Label Content="Town" HorizontalAlignment="Stretch" Margin="0,231,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+            <TextBox HorizontalAlignment="Stretch" Height="23" Margin="10,266,10,0" TextWrapping="Wrap" Text="{Binding Path=Address.Town}" VerticalAlignment="Top" Width="Auto"/>
+
+            <Label Content="Country" HorizontalAlignment="Stretch" Margin="0,302,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+            <TextBox HorizontalAlignment="Stretch" Height="23" Margin="10,337,10,0" TextWrapping="Wrap" Text="{Binding Path=Address.Country}" VerticalAlignment="Top" Width="Auto"/>
+        </Grid>
+        <Button Content="Cancel" x:Name="BtnCancel" Click="Cancel_OnClick" HorizontalAlignment="Left" Margin="40,444,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Save" x:Name="BtnSave" Click="Save_OnClick" HorizontalAlignment="Left" Margin="285,444,0,0" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+</Window>

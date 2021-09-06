@@ -166,9 +166,9 @@ namespace SF_16_POP2020.Services
         }
         public static bool SaveClinic(Clinic clinic)
         {
-            var addressId = AddressService.FindByStreetAndNumberAndTownAndCountry(clinic.Address.Street.Trim(), clinic.Address.Number.Trim(), clinic.Address.Town.Trim(), clinic.Address.Country.Trim())?.Id;
-            if (addressId.HasValue) addressId = AddressService.SaveAddress(clinic.Address.Street.Trim(), clinic.Address.Number.Trim(), clinic.Address.Town.Trim(), clinic.Address.Country.Trim());
-            string sql = $@"INSERT INTO clinic (name, address_id)
+            var addressId = AddressService.SaveAddressIfNotExists(clinic.Address);
+            if (addressId.HasValue) clinic.Address.Id = (int)addressId;
+            string sql = $@"INSERT INTO clinic (clinic_name, address_id)
             VALUES (@NAME, @ADDRESS_ID)";
             using (var con = new MySqlConnection(Util.CONNECTION_STRING))
             {
@@ -184,11 +184,11 @@ namespace SF_16_POP2020.Services
         }
         public static void UpdateClinic(Clinic clinic)
         {
-            var addressId = AddressService.FindByStreetAndNumberAndTownAndCountry(clinic.Address.Street.Trim(), clinic.Address.Number.Trim(), clinic.Address.Town.Trim(), clinic.Address.Country.Trim())?.Id;
-            if (addressId.HasValue) addressId = AddressService.SaveAddress(clinic.Address.Street.Trim(), clinic.Address.Number.Trim(), clinic.Address.Town.Trim(), clinic.Address.Country.Trim());
+            var addressId = AddressService.SaveAddressIfNotExists(clinic.Address);
+            if (addressId.HasValue) clinic.Address.Id = (int)addressId;
             string sql = @"UPDATE clinic 
-            SET name = @NAME,
-            adress_id = @ADDRESS
+            SET clinic_name = @NAME,
+            address_id = @ADDRESS
 
             WHERE id = @ID";
             using (var con = new MySqlConnection(Util.CONNECTION_STRING))

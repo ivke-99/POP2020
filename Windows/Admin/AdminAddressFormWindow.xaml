@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SF_16_POP2020.Windows.Admin"
         mc:Ignorable="d"
-        Title="AdminAddressFormWindow" Height="600" Width="400">
+        Title="Admin Address Form Window" Height="600" Width="400">
     <Grid>
         <Grid HorizontalAlignment="Center" Height="412" Margin="36,32,36,0" VerticalAlignment="Top" Width="320">
             <Label Content="Street" HorizontalAlignment="Stretch" Margin="0,35,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>

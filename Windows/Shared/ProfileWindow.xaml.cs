@@ -65,8 +65,6 @@ namespace SF_16_POP2020.Windows.Shared
                 new ErrorDialog(errorMessage).Show();
                 return;
             }
-            var addressId = AddressService.SaveAddressIfNotExists(User.Address);
-            if (addressId.HasValue) User.Address.Id = (int)addressId;
             User.Password = pbPassword.Password;
             UserService.UpdateUser(User);
             new SuccessDialog("Successfully updated profile!").Show();

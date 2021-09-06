@@ -41,7 +41,6 @@ namespace SF_16_POP2020.Windows.Admin
 
         private void AddressMI_OnClick(object sender, RoutedEventArgs e)
         {
-            Hide();
             new AdminAddressWindow().Show();
         }
 
@@ -53,14 +52,12 @@ namespace SF_16_POP2020.Windows.Admin
 
         private void DoctorMI_OnClick(object sender, RoutedEventArgs e)
         {
-            Hide();
-            //new LoginWindow().Show();
+            new AdminDoctorWindow().Show();
         }
 
         private void ClinicMI_OnClick(object sender, RoutedEventArgs e)
         {
-            Hide();
-            //new LoginWindow().Show();
+            new AdminClinicWindow().Show();
         }
 
         private void AppointmentMI_OnClick(object sender, RoutedEventArgs e)
