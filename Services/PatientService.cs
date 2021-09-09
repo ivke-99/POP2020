@@ -80,8 +80,8 @@ namespace SF_16_POP2020.Services
             var sql = @"SELECT * FROM users U
             INNER JOIN appointment A
             ON U.pin = A.patient_pin
-            WHERE U.deleted == 0
-            AND A.deleted == 0
+            WHERE U.deleted = 0
+            AND A.deleted = 0
             AND status = @STATUS
             AND doctor_pin = @PIN
             AND role = 0";

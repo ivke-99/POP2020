@@ -3,6 +3,8 @@ using SF_16_POP2020.Misc;
 using SF_16_POP2020.Services;
 using SF_16_POP2020.Windows.Admin;
 using SF_16_POP2020.Windows.Dialog;
+using SF_16_POP2020.Windows.DoctorWindows;
+using SF_16_POP2020.Windows.PatientWindows;
 using SF_16_POP2020.Windows.Public;
 using System;
 using System.Collections.Generic;
@@ -43,10 +45,10 @@ namespace SF_16_POP2020
                         win = new AdminMainWindow();
                         break;
                     case Models.ERole.DOCTOR:
-                        //win = new DoctorMainWindow();
+                        win = new DoctorMainWindow();
                         break;
                     case Models.ERole.PATIENT:
-                        //win = new PatientMainWindow();
+                        win = new PatientMainWindow();
                         break;
                 }
                 Hide();

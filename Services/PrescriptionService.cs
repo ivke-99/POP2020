@@ -48,7 +48,7 @@ namespace SF_16_POP2020.Services
                 {
                     _ = cmd.Parameters.AddWithValue("DESCRIPTION", p.Description);
                     _ = cmd.Parameters.AddWithValue("DOCTORPIN", p.Doctor.Pin);
-                    return (int)cmd.ExecuteScalar();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
                 }
             }
         }

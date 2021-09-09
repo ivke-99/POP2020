@@ -1,0 +1,46 @@
+﻿<Window x:Class="SF_16_POP2020.Windows.DoctorWindows.DoctorMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SF_16_POP2020.Windows.DoctorWindows"
+        mc:Ignorable="d"
+        Title="DoctorMainWindow" Height="650" Width="800">
+    <Grid>
+        <Menu HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto">
+            <MenuItem Header="Logout" Height="Auto" Width="Auto" x:Name="LogoutMI" Click="LogoutMI_Click"/>
+            <MenuItem Header="My profile" Height="Auto" Width="Auto" x:Name="ProfileMI" Click="ProfileMI_Click" />
+            <MenuItem Header="Search" Height="Auto" Width="Auto" x:Name="SearchMI" Click="SearchMI_OnClick" />
+        </Menu>
+        <TabControl HorizontalAlignment="Stretch" Margin="0,23,0,0" VerticalAlignment="Stretch">
+            <TabItem Header="Clinics">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid SelectionMode="Single" IsReadOnly="True" x:Name="DGClinics" SelectionChanged="DGClinics_SelectionChanged" HorizontalAlignment="Left" Margin="10,68,0,0" MinWidth="350" Width="Auto"/>
+                    <DataGrid SelectionMode="Single" IsReadOnly="True" x:Name="DGDoctors" AutoGeneratingColumn="DGDoctors_OnAutoGeneratingColumn" HorizontalAlignment="Stretch" Margin="400,68,10,0" MinWidth="350" Width="Auto"/>
+                    <Label FontSize="16" Content="Clinics" HorizontalAlignment="Left" Margin="118,32,0,0" VerticalAlignment="Top"/>
+                    <Label FontSize="16" Content="Doctors in selected clinic" HorizontalAlignment="Right" Margin="0,32,85,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="My patients">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid AutoGeneratingColumn="DGPatients_OnAutoGeneratingColumn" IsReadOnly="True" x:Name="DGPatients" HorizontalAlignment="Stretch" Height="500" Margin="0,0,0,36" VerticalAlignment="Top" Width="Auto"/>
+                    <Button Content="Add prescription" HorizontalAlignment="Left" Margin="56,518,0,0" VerticalAlignment="Top" Width="215" Height="40" Click="AddPrescription_Click"/>
+                    <Button Content="Patient medical record" HorizontalAlignment="Right" Margin="0,518,10,0" VerticalAlignment="Top" Width="215" Height="40" Click="MedicalRecord_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Appointments">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,0">
+                    <DataGrid AutoGeneratingColumn="DGAppointments_OnAutoGeneratingColumn"  SelectionMode="Single" SelectionChanged="DGAppointments_OnSelectionChanged" IsReadOnly="True" x:Name="DGAppointments" HorizontalAlignment="Stretch" MinHeight="400" Height="Auto" Width="Auto" Margin="0,0,0,60"/>
+                    <Button x:Name="BtnDelete" Click="Delete_OnClick" IsEnabled="False" Content="Delete" FontSize="17"  HorizontalAlignment="Left" Margin="41,522,0,0" VerticalAlignment="Top" Width="124" Height="36"/>
+                    <Button x:Name="BtnCreate" Click="Create_OnClick" Content="Create" FontSize="17"  HorizontalAlignment="Right" Margin="0,522,27,0" VerticalAlignment="Top" Width="124" Height="36"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Prescriptions">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,0">
+                    <DataGrid  SelectionMode="Single" IsReadOnly="True" x:Name="DGPrescriptionsDoctor" HorizontalAlignment="Stretch" MinHeight="400" Height="Auto" Width="Auto" Margin="0,0,0,60"/>
+                    <Button Click="CreatePrescription_OnClick" Content="Create prescription" HorizontalAlignment="Center" Margin="0,0,0,19" VerticalAlignment="Bottom" Width="120"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
