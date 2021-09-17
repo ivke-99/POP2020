@@ -36,14 +36,14 @@ namespace SF_16_POP2020.Windows.Admin
         }
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            Close();
-            new AdminDoctorFormWindow(DG.SelectedItem as Doctor, true).Show();
+            new AdminDoctorFormWindow(DG.SelectedItem as Doctor, true).ShowDialog();
+            DG.ItemsSource = DoctorService.FindAll();
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Close();
-            new AdminDoctorFormWindow().Show();
+            new AdminDoctorFormWindow().ShowDialog();
+            DG.ItemsSource = DoctorService.FindAll();
         }
 
 

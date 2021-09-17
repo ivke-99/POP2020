@@ -71,7 +71,6 @@ namespace SF_16_POP2020.Windows.Admin
             else
             {
                 Close();
-                new AdminClinicWindow().Show();
                 new SuccessDialog("Success!").Show();
             }
         }

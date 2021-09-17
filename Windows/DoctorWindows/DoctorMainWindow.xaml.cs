@@ -96,6 +96,7 @@ namespace SF_16_POP2020.Windows.DoctorWindows
             switch (e.PropertyName)
             {
                 case "ListOfAppointments":
+                case "ListOfPrescriptions":
                 case "Password":
                     e.Cancel = true;
                     break;
@@ -106,7 +107,10 @@ namespace SF_16_POP2020.Windows.DoctorWindows
         {
             var sel = DGPatients.SelectedItem as Patient;
             if (sel != null)
-                new DoctorAddPrescriptionWindow(sel).Show();
+            {
+                new DoctorAddPrescriptionWindow(sel).ShowDialog();
+                DGPrescriptionsDoctor.ItemsSource = PrescriptionService.FindAllByDoctor(UserState.LoggedUser.Pin);
+            }
         }
 
         private void MedicalRecord_Click(object sender, RoutedEventArgs e)
@@ -117,12 +121,15 @@ namespace SF_16_POP2020.Windows.DoctorWindows
 
         private void Create_OnClick(object sender, RoutedEventArgs e)
         {
-            new DoctorCreateAppointmentWindow().Show();
+            new DoctorCreateAppointmentWindow().ShowDialog();
+            DGAppointments.ItemsSource = AppointmentService.FindAllByDoctor(UserState.LoggedUser.Pin);
+
         }
 
         private void CreatePrescription_OnClick(object sender, RoutedEventArgs e)
         {
-            new DoctorCreatePrescriptionWindow().Show();
+            new DoctorCreatePrescriptionWindow().ShowDialog();
+            DGPrescriptionsDoctor.ItemsSource = PrescriptionService.FindAllByDoctor(UserState.LoggedUser.Pin);
         }
     }
 }

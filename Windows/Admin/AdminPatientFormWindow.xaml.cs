@@ -93,7 +93,6 @@ namespace SF_16_POP2020.Windows.Admin
             {
                 Close();
                 new SuccessDialog("Success!").Show();
-                new AdminPatientWindow().Show();
             }
         }
 

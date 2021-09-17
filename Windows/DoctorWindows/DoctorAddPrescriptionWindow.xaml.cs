@@ -44,7 +44,6 @@ namespace SF_16_POP2020.Windows.DoctorWindows
             if (Prescription != null) {
                 PrescriptionService.AddPatientPrescription(Prescription, Patient);
                 Close();
-                new DoctorMainWindow().Show();
                 new SuccessDialog("Successfully added the prescription to the patient.").Show();
             }
             else

@@ -53,7 +53,6 @@ namespace SF_16_POP2020.Windows.DoctorWindows
             else
             {
                 Close();
-                new DoctorMainWindow().Show();
                 new SuccessDialog("Success!").Show();
             }
                 

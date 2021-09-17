@@ -38,13 +38,15 @@ namespace SF_16_POP2020.Windows.Admin
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            new AdminPatientFormWindow(DG.SelectedItem as Patient, true).Show();
+            new AdminPatientFormWindow(DG.SelectedItem as Patient, true).ShowDialog();
+            DG.ItemsSource = PatientService.FindAll();
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            new AdminPatientFormWindow().Show();
+            new AdminPatientFormWindow().ShowDialog();
+            DG.ItemsSource = PatientService.FindAll();
         }
 
 
@@ -71,7 +73,7 @@ namespace SF_16_POP2020.Windows.Admin
 
         private void Prescription_OnClick(object sender, RoutedEventArgs e)
         {
-            new AdminPatientPrescriptionFormWindow(DG.SelectedItem as Patient).Show();
+            new AdminPatientPrescriptionFormWindow(DG.SelectedItem as Patient).ShowDialog();
         }
     }
 }

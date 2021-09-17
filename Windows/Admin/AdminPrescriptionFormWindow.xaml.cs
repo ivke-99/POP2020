@@ -61,7 +61,7 @@ namespace SF_16_POP2020.Windows.Admin
             }
             else
             {
-                new AdminPrescriptionWindow().Show();
+                Close();
                 new SuccessDialog("Success!").Show();
             }
         }

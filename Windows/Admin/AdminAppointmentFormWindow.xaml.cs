@@ -60,7 +60,7 @@ namespace SF_16_POP2020.Windows.Admin
             }
             else
             {
-                new AdminAppointmentWindow().Show();
+                Close();
                 new SuccessDialog("Success!").Show();
             }
         }

@@ -44,7 +44,6 @@ namespace SF_16_POP2020.Windows.DoctorWindows
             PrescriptionService.SavePrescription(pres);
             Close();
             new SuccessDialog("Success!").Show();
-            new DoctorMainWindow().Show();
         }
     }
 }

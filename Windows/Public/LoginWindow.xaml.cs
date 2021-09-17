@@ -65,7 +65,6 @@ namespace SF_16_POP2020
 
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
             new SearchWindow().Show();
         }
 

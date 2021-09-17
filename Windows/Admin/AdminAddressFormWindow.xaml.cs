@@ -58,15 +58,10 @@ namespace SF_16_POP2020.Windows.Admin
             else
             {
                 Close();
-                new AdminAddressWindow().Show();
                 new SuccessDialog("Success!").Show();
             }
         }
 
-        private void Cancel_OnClick(object sender, RoutedEventArgs e)
-        {
-            Close();
-            new AdminAddressWindow().Show();
-        }
+        private void Cancel_OnClick(object sender, RoutedEventArgs e) => Close();
     }
 }

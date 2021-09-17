@@ -36,14 +36,14 @@ namespace SF_16_POP2020.Windows.Admin
         }
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            Close();
-            new AdminAppointmentFormWindow(DG.SelectedItem as Appointment, true).Show();
+            new AdminAppointmentFormWindow(DG.SelectedItem as Appointment, true).ShowDialog();
+            DG.ItemsSource = AppointmentService.FindAll();
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Close();
-            new AdminAppointmentFormWindow().Show();
+            new AdminAppointmentFormWindow().ShowDialog();
+            DG.ItemsSource = AppointmentService.FindAll();
         }
 
 

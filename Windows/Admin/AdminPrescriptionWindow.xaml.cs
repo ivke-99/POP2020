@@ -36,14 +36,14 @@ namespace SF_16_POP2020.Windows.Admin
         }
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            Close();
-            new AdminPrescriptionFormWindow(DG.SelectedItem as Prescription, true).Show();
+            new AdminPrescriptionFormWindow(DG.SelectedItem as Prescription, true).ShowDialog();
+            DG.ItemsSource = PrescriptionService.FindAll();
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Close();
-            new AdminPrescriptionFormWindow().Show();
+            new AdminPrescriptionFormWindow().ShowDialog();
+            DG.ItemsSource = PrescriptionService.FindAll();
         }
 
 

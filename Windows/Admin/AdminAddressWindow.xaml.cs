@@ -37,14 +37,14 @@ namespace SF_16_POP2020.Windows.Admin
         }
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            Close();
-            new AdminAddressFormWindow(DGAddress.SelectedItem as Address, true).Show();
+            new AdminAddressFormWindow(DGAddress.SelectedItem as Address, true).ShowDialog();
+            DGAddress.ItemsSource = AddressService.FindAll();
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Close();
-            new AdminAddressFormWindow().Show();
+            new AdminAddressFormWindow().ShowDialog();
+            DGAddress.ItemsSource = AddressService.FindAll();
         }
 
 

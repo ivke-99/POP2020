@@ -36,14 +36,14 @@ namespace SF_16_POP2020.Windows.Admin
         }
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            Close();
-            new AdminClinicFormWindow(DG.SelectedItem as Clinic, true).Show();
+            new AdminClinicFormWindow(DG.SelectedItem as Clinic, true).ShowDialog();
+            DG.ItemsSource = ClinicService.FindAll();
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Close();
-            new AdminClinicFormWindow().Show();
+            new AdminClinicFormWindow().ShowDialog();
+            DG.ItemsSource = ClinicService.FindAll();
         }
 
 
